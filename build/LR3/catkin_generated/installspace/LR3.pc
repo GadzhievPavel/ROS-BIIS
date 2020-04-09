@@ -1,0 +1,8 @@
+prefix=/home/pavel/student_633_ws/install
+
+Name: LR3
+Description: Description of LR3
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
