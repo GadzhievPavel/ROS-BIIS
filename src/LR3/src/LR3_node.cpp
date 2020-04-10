@@ -6,6 +6,10 @@ static sensor_msgs::PointCloud cloud;
 sensor_msgs::PointCloud tempCloud;
 nav_msgs::OccupancyGrid grid;
 bool new_data;
+static int height=600;
+static int width=600;
+int data [600][600];
+
 void callback(const sensor_msgs::PointCloud &data){
   cloud = data;
   new_data=true;
@@ -20,7 +24,7 @@ int main(int argc, char **argv){
   grid.info.width =600;
   grid.info.height =600;
   grid.info.resolution = 0.25;
-  grid.header.frame_id ="map";
+  grid.header.frame_id ="base_link";
   grid.info.origin.position.x = -1 * grid.info.resolution * grid.info.width/2;
   grid.info.origin.position.y = -1 * grid.info.resolution * grid.info.height/2;
   grid.data.resize(grid.info.width * grid.info.height);
@@ -30,33 +34,47 @@ int main(int argc, char **argv){
     if(new_data){
       tempCloud=cloud;
       tempCloud.points.clear();
-      int height=600, width=600;
-      int data[width][height];
+
       for (int i = 0;i<width;i++) {
         for (int j = 0;j<height;j++) {
           data[i][j]=50;
         }
       }
 
-      ROS_INFO("Cloud size=%d",cloud.points.size());
+      //ROS_INFO("Cloud size=%d",cloud.points.size());
       for (int i = 0;i< cloud.points.size();i++) {
-          if( cloud.points.at(i).z>0.25){
-            int w = (cloud.points.at(i).x/grid.info.resolution)+300;
-            int h = (cloud.points.at(i).y/grid.info.resolution)+300;
-           //ROS_INFO("W:%f",cloud.points.at(i).x/grid.info.resolution);
-           //ROS_INFO("H:%f",cloud.points.at(i).y/grid.info.resolution);
-           data[w][h]=100;
+        //ROS_INFO("Z: %f",cloud.points.at(i).z);
+        if(cloud.points.at(i).z>0.25){
+          int w = (cloud.points.at(i).x/grid.info.resolution)+300;
+          int h = (cloud.points.at(i).y/grid.info.resolution)+300;
+          //ROS_INFO("W:%f",cloud.points.at(i).x/grid.info.resolution);
+          data[w][h]=0;
         }
       }
 
-      ROS_INFO("SIZE grid %d",grid.data.size());
-      ROS_INFO("SIZE data %d",height*width);
+      double teta = asin(grid.info.resolution/height);
+      ROS_INFO("angle tete:%f",teta);
+      for (double angle = 0;angle<2*3.1415;angle=angle+(8*teta)) {
+        ROS_INFO("cur angle:%f",angle);
+          for (double R=1.0; R<300;R++ ){
+                  int x = (R*sin(angle))+300;
+                  int y = (R*cos(angle))+300;
+                  ROS_INFO("cur_radius %f x:%d y:%d",R,x,y);
+                  if(x>600 || y>600 || x<0 || y<0 || data[x][y]==0){
+                    ROS_INFO("break;");
+                    break;
+                  }
+                  data[x][y]=100;
+                }
+      }
+
       for (int i=0;i<width;i++) {
         for (int j = 0;j<height;j++) {
           int index = j+i*grid.info.width;
           grid.data.at(index)=data[i][j];
         }
       }
+
       new_data=false;
       pub.publish(grid);
     }
