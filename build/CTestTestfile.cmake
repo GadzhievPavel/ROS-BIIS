@@ -6,4 +6,5 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs(gtest)
 subdirs(LR3)
+subdirs(LR4)
 subdirs(hello)

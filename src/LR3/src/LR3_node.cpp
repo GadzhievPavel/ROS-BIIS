@@ -2,6 +2,7 @@
 #include <sensor_msgs/PointCloud.h>
 #include <nav_msgs/OccupancyGrid.h>
 #include <geometry_msgs/Point.h>
+
 static sensor_msgs::PointCloud cloud;
 sensor_msgs::PointCloud tempCloud;
 nav_msgs::OccupancyGrid grid;
@@ -48,7 +49,7 @@ int main(int argc, char **argv){
           int w = (cloud.points.at(i).x/grid.info.resolution)+300;
           int h = (cloud.points.at(i).y/grid.info.resolution)+300;
           //ROS_INFO("W:%f",cloud.points.at(i).x/grid.info.resolution);
-          data[w][h]=0;
+          data[w][h]=100;
         }
       }
 
@@ -60,11 +61,11 @@ int main(int argc, char **argv){
                   int x = (R*sin(angle))+300;
                   int y = (R*cos(angle))+300;
                   ROS_INFO("cur_radius %f x:%d y:%d",R,x,y);
-                  if(x>600 || y>600 || x<0 || y<0 || data[x][y]==0){
+                  if(x>600 || y>600 || x<0 || y<0 || data[x][y]==100){
                     ROS_INFO("break;");
                     break;
                   }
-                  data[x][y]=100;
+                  data[x][y]=0;
                 }
       }
 

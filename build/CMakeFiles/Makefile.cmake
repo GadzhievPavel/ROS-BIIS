@@ -12,6 +12,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.5.1/CMakeSystem.cmake"
   "LR3/catkin_generated/ordered_paths.cmake"
   "LR3/catkin_generated/package.cmake"
+  "LR4/catkin_generated/ordered_paths.cmake"
+  "LR4/catkin_generated/package.cmake"
   "catkin/catkin_generated/version/package.cmake"
   "catkin_generated/installspace/_setup_util.py"
   "catkin_generated/order_packages.cmake"
@@ -20,6 +22,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/pavel/student_633_ws/src/CMakeLists.txt"
   "/home/pavel/student_633_ws/src/LR3/CMakeLists.txt"
   "/home/pavel/student_633_ws/src/LR3/package.xml"
+  "/home/pavel/student_633_ws/src/LR4/CMakeLists.txt"
+  "/home/pavel/student_633_ws/src/LR4/package.xml"
   "/home/pavel/student_633_ws/src/hello/CMakeLists.txt"
   "/home/pavel/student_633_ws/src/hello/package.xml"
   "/opt/ros/kinetic/share/actionlib/cmake/actionlib-msg-extras.cmake"
@@ -226,6 +230,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "gtest/CMakeFiles/CMakeDirectoryInformation.cmake"
   "gtest/gtest/CMakeFiles/CMakeDirectoryInformation.cmake"
   "LR3/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "LR4/CMakeFiles/CMakeDirectoryInformation.cmake"
   "hello/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -286,5 +291,8 @@ set(CMAKE_DEPEND_INFO_FILES
   "LR3/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/DependInfo.cmake"
   "LR3/CMakeFiles/tf2_msgs_generate_messages_py.dir/DependInfo.cmake"
   "LR3/CMakeFiles/LR3_node.dir/DependInfo.cmake"
+  "LR4/CMakeFiles/_catkin_empty_exported_target.dir/DependInfo.cmake"
+  "LR4/CMakeFiles/LR4_node.dir/DependInfo.cmake"
+  "LR4/CMakeFiles/LR4_process_scan_node.dir/DependInfo.cmake"
   "hello/CMakeFiles/hello_node.dir/DependInfo.cmake"
   )
