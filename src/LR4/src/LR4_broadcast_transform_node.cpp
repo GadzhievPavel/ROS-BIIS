@@ -1,7 +1,7 @@
 #include <ros/ros.h>
 #include <nav_msgs/Odometry.h>
 #include <tf/transform_broadcaster.h>
-
+#include <sensor_msgs/LaserScan.h>
 static nav_msgs::Odometry odom,postOdom;
 static bool odomFlag=false;
 static ros::Time current_time;
@@ -12,6 +12,11 @@ void odomCallback(const nav_msgs::Odometry &data){
   odom=data;
   odomFlag=true;
   current_time = ros::Time::now();
+}
+static sensor_msgs::LaserScan scan;
+void scanCallback(const sensor_msgs::LaserScan &data){
+  ROS_INFO("scan");
+  scan=data;
 }
 
 void transformOdom2Baselink(){
@@ -38,6 +43,7 @@ void transformBaselink2Laser(){
   baselink2laser.transform.translation.z=0;
   geometry_msgs::Quaternion q = tf::createQuaternionMsgFromYaw(0);
   q.y=-1*q.y;
+  q.x=-1*q.x;
   baselink2laser.transform.rotation = q;
 }
 
@@ -45,6 +51,7 @@ int main(int argc, char **argv)
 {
   ros::init(argc, argv, "LR4_node");
   ros::NodeHandle nh;
+  ros::Subscriber subScan = nh.subscribe("/scan",1000,scanCallback);
   ros::Subscriber subOdom = nh.subscribe("/odom",1000,odomCallback);
   ros::Publisher pub = nh.advertise<nav_msgs::Odometry>("/postOdom",1000);
   tf::TransformBroadcaster odom2baseLinkBroadcast;

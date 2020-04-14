@@ -13,6 +13,8 @@ nav_msgs/Odometry.h
 -
 tf/transform_broadcaster.h
 -
+sensor_msgs/LaserScan.h
+-
 
 /opt/ros/kinetic/include/geometry_msgs/Point.h
 string
@@ -945,6 +947,24 @@ ros/forwards.h
 /opt/ros/kinetic/include/ros/ros/forwards.h
 
 /opt/ros/kinetic/include/rosconsole/macros_generated.h
+
+/opt/ros/kinetic/include/sensor_msgs/LaserScan.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+std_msgs/Header.h
+-
 
 /opt/ros/kinetic/include/std_msgs/Header.h
 string

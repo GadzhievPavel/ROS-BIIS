@@ -1,0 +1,8 @@
+prefix=/home/pavel/student_633_ws/devel
+
+Name: LR4_scan_find_point
+Description: Description of LR4_scan_find_point
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

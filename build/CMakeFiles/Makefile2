@@ -1931,14 +1931,12 @@ clean: LR3/CMakeFiles/LR3_node.dir/clean
 
 # Convenience name for "all" pass in the directory.
 LR4/all: LR4/CMakeFiles/LR4_node.dir/all
-LR4/all: LR4/CMakeFiles/LR4_process_scan_node.dir/all
 
 .PHONY : LR4/all
 
 # Convenience name for "clean" pass in the directory.
 LR4/clean: LR4/CMakeFiles/_catkin_empty_exported_target.dir/clean
 LR4/clean: LR4/CMakeFiles/LR4_node.dir/clean
-LR4/clean: LR4/CMakeFiles/LR4_process_scan_node.dir/clean
 
 .PHONY : LR4/clean
 
@@ -2017,39 +2015,57 @@ clean: LR4/CMakeFiles/LR4_node.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target LR4/CMakeFiles/LR4_process_scan_node.dir
+# Directory level rules for directory LR4_scan_find_point
+
+# Convenience name for "all" pass in the directory.
+LR4_scan_find_point/all: LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/all
+
+.PHONY : LR4_scan_find_point/all
+
+# Convenience name for "clean" pass in the directory.
+LR4_scan_find_point/clean: LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/clean
+
+.PHONY : LR4_scan_find_point/clean
+
+# Convenience name for "preinstall" pass in the directory.
+LR4_scan_find_point/preinstall:
+
+.PHONY : LR4_scan_find_point/preinstall
+
+#=============================================================================
+# Target rules for target LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir
 
 # All Build rule for target.
-LR4/CMakeFiles/LR4_process_scan_node.dir/all:
-	$(MAKE) -f LR4/CMakeFiles/LR4_process_scan_node.dir/build.make LR4/CMakeFiles/LR4_process_scan_node.dir/depend
-	$(MAKE) -f LR4/CMakeFiles/LR4_process_scan_node.dir/build.make LR4/CMakeFiles/LR4_process_scan_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pavel/student_633_ws/build/CMakeFiles --progress-num=5,6 "Built target LR4_process_scan_node"
-.PHONY : LR4/CMakeFiles/LR4_process_scan_node.dir/all
+LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/all:
+	$(MAKE) -f LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/build.make LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/depend
+	$(MAKE) -f LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/build.make LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pavel/student_633_ws/build/CMakeFiles --progress-num=5,6 "Built target LR4_scan_find_point_node"
+.PHONY : LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/all
 
 # Include target in all.
-all: LR4/CMakeFiles/LR4_process_scan_node.dir/all
+all: LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-LR4/CMakeFiles/LR4_process_scan_node.dir/rule: cmake_check_build_system
+LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pavel/student_633_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 LR4/CMakeFiles/LR4_process_scan_node.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pavel/student_633_ws/build/CMakeFiles 0
-.PHONY : LR4/CMakeFiles/LR4_process_scan_node.dir/rule
+.PHONY : LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/rule
 
 # Convenience name for target.
-LR4_process_scan_node: LR4/CMakeFiles/LR4_process_scan_node.dir/rule
+LR4_scan_find_point_node: LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/rule
 
-.PHONY : LR4_process_scan_node
-
-# clean rule for target.
-LR4/CMakeFiles/LR4_process_scan_node.dir/clean:
-	$(MAKE) -f LR4/CMakeFiles/LR4_process_scan_node.dir/build.make LR4/CMakeFiles/LR4_process_scan_node.dir/clean
-.PHONY : LR4/CMakeFiles/LR4_process_scan_node.dir/clean
+.PHONY : LR4_scan_find_point_node
 
 # clean rule for target.
-clean: LR4/CMakeFiles/LR4_process_scan_node.dir/clean
+LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/clean:
+	$(MAKE) -f LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/build.make LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/clean
+.PHONY : LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/clean
+
+# clean rule for target.
+clean: LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/clean
 
 .PHONY : clean
 

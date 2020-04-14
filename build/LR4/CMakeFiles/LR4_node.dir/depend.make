@@ -73,6 +73,7 @@ LR4/CMakeFiles/LR4_node.dir/src/LR4_broadcast_transform_node.cpp.o: /opt/ros/kin
 LR4/CMakeFiles/LR4_node.dir/src/LR4_broadcast_transform_node.cpp.o: /opt/ros/kinetic/include/ros/wall_timer.h
 LR4/CMakeFiles/LR4_node.dir/src/LR4_broadcast_transform_node.cpp.o: /opt/ros/kinetic/include/ros/wall_timer_options.h
 LR4/CMakeFiles/LR4_node.dir/src/LR4_broadcast_transform_node.cpp.o: /opt/ros/kinetic/include/rosconsole/macros_generated.h
+LR4/CMakeFiles/LR4_node.dir/src/LR4_broadcast_transform_node.cpp.o: /opt/ros/kinetic/include/sensor_msgs/LaserScan.h
 LR4/CMakeFiles/LR4_node.dir/src/LR4_broadcast_transform_node.cpp.o: /opt/ros/kinetic/include/std_msgs/Header.h
 LR4/CMakeFiles/LR4_node.dir/src/LR4_broadcast_transform_node.cpp.o: /opt/ros/kinetic/include/tf/LinearMath/Matrix3x3.h
 LR4/CMakeFiles/LR4_node.dir/src/LR4_broadcast_transform_node.cpp.o: /opt/ros/kinetic/include/tf/LinearMath/MinMax.h

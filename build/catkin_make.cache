@@ -1,2 +1,2 @@
-LR3:LR4:hello
+LR3:LR4:LR4_scan_find_point:hello
 -G CodeBlocks - Unix Makefiles -DCMAKE_BUILD_TYPE=Debug -DCATKIN_DEVEL_PREFIX=/home/pavel/student_633_ws/devel -DCMAKE_INSTALL_PREFIX=/home/pavel/student_633_ws/install

@@ -7,4 +7,5 @@
 subdirs(gtest)
 subdirs(LR3)
 subdirs(LR4)
+subdirs(LR4_scan_find_point)
 subdirs(hello)

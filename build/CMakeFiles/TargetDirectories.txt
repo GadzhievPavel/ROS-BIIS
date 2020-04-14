@@ -88,9 +88,16 @@
 /home/pavel/student_633_ws/build/LR4/CMakeFiles/_catkin_empty_exported_target.dir
 /home/pavel/student_633_ws/build/LR4/CMakeFiles/edit_cache.dir
 /home/pavel/student_633_ws/build/LR4/CMakeFiles/LR4_node.dir
-/home/pavel/student_633_ws/build/LR4/CMakeFiles/LR4_process_scan_node.dir
 /home/pavel/student_633_ws/build/LR4/CMakeFiles/install/local.dir
 /home/pavel/student_633_ws/build/LR4/CMakeFiles/install/strip.dir
+/home/pavel/student_633_ws/build/LR4_scan_find_point/CMakeFiles/list_install_components.dir
+/home/pavel/student_633_ws/build/LR4_scan_find_point/CMakeFiles/install.dir
+/home/pavel/student_633_ws/build/LR4_scan_find_point/CMakeFiles/rebuild_cache.dir
+/home/pavel/student_633_ws/build/LR4_scan_find_point/CMakeFiles/edit_cache.dir
+/home/pavel/student_633_ws/build/LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir
+/home/pavel/student_633_ws/build/LR4_scan_find_point/CMakeFiles/test.dir
+/home/pavel/student_633_ws/build/LR4_scan_find_point/CMakeFiles/install/strip.dir
+/home/pavel/student_633_ws/build/LR4_scan_find_point/CMakeFiles/install/local.dir
 /home/pavel/student_633_ws/build/hello/CMakeFiles/list_install_components.dir
 /home/pavel/student_633_ws/build/hello/CMakeFiles/install.dir
 /home/pavel/student_633_ws/build/hello/CMakeFiles/rebuild_cache.dir

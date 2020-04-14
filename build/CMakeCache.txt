@@ -235,6 +235,12 @@ LR4_BINARY_DIR:STATIC=/home/pavel/student_633_ws/build/LR4
 //Value Computed by CMake
 LR4_SOURCE_DIR:STATIC=/home/pavel/student_633_ws/src/LR4
 
+//Value Computed by CMake
+LR4_scan_find_point_BINARY_DIR:STATIC=/home/pavel/student_633_ws/build/LR4_scan_find_point
+
+//Value Computed by CMake
+LR4_scan_find_point_SOURCE_DIR:STATIC=/home/pavel/student_633_ws/src/LR4_scan_find_point
+
 //lsb_release executable was found
 LSB_FOUND:BOOL=TRUE
 
@@ -526,7 +532,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

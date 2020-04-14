@@ -195,21 +195,6 @@ LR4_node/fast:
 	cd /home/pavel/student_633_ws/build && $(MAKE) -f LR4/CMakeFiles/LR4_node.dir/build.make LR4/CMakeFiles/LR4_node.dir/build
 .PHONY : LR4_node/fast
 
-# Convenience name for target.
-LR4/CMakeFiles/LR4_process_scan_node.dir/rule:
-	cd /home/pavel/student_633_ws/build && $(MAKE) -f CMakeFiles/Makefile2 LR4/CMakeFiles/LR4_process_scan_node.dir/rule
-.PHONY : LR4/CMakeFiles/LR4_process_scan_node.dir/rule
-
-# Convenience name for target.
-LR4_process_scan_node: LR4/CMakeFiles/LR4_process_scan_node.dir/rule
-
-.PHONY : LR4_process_scan_node
-
-# fast build rule for target.
-LR4_process_scan_node/fast:
-	cd /home/pavel/student_633_ws/build && $(MAKE) -f LR4/CMakeFiles/LR4_process_scan_node.dir/build.make LR4/CMakeFiles/LR4_process_scan_node.dir/build
-.PHONY : LR4_process_scan_node/fast
-
 src/LR4_broadcast_transform_node.o: src/LR4_broadcast_transform_node.cpp.o
 
 .PHONY : src/LR4_broadcast_transform_node.o
@@ -237,33 +222,6 @@ src/LR4_broadcast_transform_node.cpp.s:
 	cd /home/pavel/student_633_ws/build && $(MAKE) -f LR4/CMakeFiles/LR4_node.dir/build.make LR4/CMakeFiles/LR4_node.dir/src/LR4_broadcast_transform_node.cpp.s
 .PHONY : src/LR4_broadcast_transform_node.cpp.s
 
-src/LR4_process_scan_node.o: src/LR4_process_scan_node.cpp.o
-
-.PHONY : src/LR4_process_scan_node.o
-
-# target to build an object file
-src/LR4_process_scan_node.cpp.o:
-	cd /home/pavel/student_633_ws/build && $(MAKE) -f LR4/CMakeFiles/LR4_process_scan_node.dir/build.make LR4/CMakeFiles/LR4_process_scan_node.dir/src/LR4_process_scan_node.cpp.o
-.PHONY : src/LR4_process_scan_node.cpp.o
-
-src/LR4_process_scan_node.i: src/LR4_process_scan_node.cpp.i
-
-.PHONY : src/LR4_process_scan_node.i
-
-# target to preprocess a source file
-src/LR4_process_scan_node.cpp.i:
-	cd /home/pavel/student_633_ws/build && $(MAKE) -f LR4/CMakeFiles/LR4_process_scan_node.dir/build.make LR4/CMakeFiles/LR4_process_scan_node.dir/src/LR4_process_scan_node.cpp.i
-.PHONY : src/LR4_process_scan_node.cpp.i
-
-src/LR4_process_scan_node.s: src/LR4_process_scan_node.cpp.s
-
-.PHONY : src/LR4_process_scan_node.s
-
-# target to generate assembly for a file
-src/LR4_process_scan_node.cpp.s:
-	cd /home/pavel/student_633_ws/build && $(MAKE) -f LR4/CMakeFiles/LR4_process_scan_node.dir/build.make LR4/CMakeFiles/LR4_process_scan_node.dir/src/LR4_process_scan_node.cpp.s
-.PHONY : src/LR4_process_scan_node.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -277,15 +235,11 @@ help:
 	@echo "... _catkin_empty_exported_target"
 	@echo "... edit_cache"
 	@echo "... LR4_node"
-	@echo "... LR4_process_scan_node"
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... src/LR4_broadcast_transform_node.o"
 	@echo "... src/LR4_broadcast_transform_node.i"
 	@echo "... src/LR4_broadcast_transform_node.s"
-	@echo "... src/LR4_process_scan_node.o"
-	@echo "... src/LR4_process_scan_node.i"
-	@echo "... src/LR4_process_scan_node.s"
 .PHONY : help
 
 

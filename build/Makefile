@@ -907,17 +907,17 @@ LR4_node/fast:
 .PHONY : LR4_node/fast
 
 #=============================================================================
-# Target rules for targets named LR4_process_scan_node
+# Target rules for targets named LR4_scan_find_point_node
 
 # Build rule for target.
-LR4_process_scan_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 LR4_process_scan_node
-.PHONY : LR4_process_scan_node
+LR4_scan_find_point_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 LR4_scan_find_point_node
+.PHONY : LR4_scan_find_point_node
 
 # fast build rule for target.
-LR4_process_scan_node/fast:
-	$(MAKE) -f LR4/CMakeFiles/LR4_process_scan_node.dir/build.make LR4/CMakeFiles/LR4_process_scan_node.dir/build
-.PHONY : LR4_process_scan_node/fast
+LR4_scan_find_point_node/fast:
+	$(MAKE) -f LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/build.make LR4_scan_find_point/CMakeFiles/LR4_scan_find_point_node.dir/build
+.PHONY : LR4_scan_find_point_node/fast
 
 #=============================================================================
 # Target rules for targets named hello_node
@@ -1002,7 +1002,7 @@ help:
 	@echo "... LR3_node"
 	@echo "... _catkin_empty_exported_target"
 	@echo "... LR4_node"
-	@echo "... LR4_process_scan_node"
+	@echo "... LR4_scan_find_point_node"
 	@echo "... hello_node"
 .PHONY : help
 
