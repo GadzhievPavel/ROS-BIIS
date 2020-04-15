@@ -153,6 +153,7 @@ int main(int argc, char **argv)
         marker.color.b = 0.0;
         arrays.markers.push_back(marker);
       }
+      ROS_INFO("size marker %d",arrays.markers.size());
       ROS_INFO("uniques Points %d", pointsStructur.size());
       flag=false;
     }
