@@ -5,7 +5,8 @@
 
 static sensor_msgs::LaserScan scan;
 static bool flag = false;
-static double threashold = 0.1;
+static double threashold = 1;
+static double threasholdCorr = 0.85;
 
 static int delta =10;
 struct UniquePoint{
@@ -110,7 +111,7 @@ int main(int argc, char **argv)
 
           }
           //ROS_INFO("input index %d   deltaR %d    deltaL %d", uniquePoint.index,deltaR,deltaL);
-          uniquePoint.hist=calcHist(scan,uniquePoint.index-deltaL,uniquePoint.index+deltaR,50);
+          uniquePoint.hist=calcHist(scan,uniquePoint.index-deltaL,uniquePoint.index+deltaR,8);
           double range= scan.ranges.at(uniquePoint.index);
           if(!(scan.ranges.at(uniquePoint.index)==scan.ranges.at(uniquePoint.index)) || scan.ranges.at(uniquePoint.index)==INFINITY){
             range=scan.range_max;
@@ -127,7 +128,7 @@ int main(int argc, char **argv)
         for (int j = i+1;j<pointsStructur.size();j++) {
           double corr = calculateCorr(pointsStructur.at(i).hist,pointsStructur.at(j).hist);
           //ROS_INFO("correlation H1 %d whit H2 %d size %d", i,j,pointsStructur.size());
-          if(corr>threashold){
+          if(corr>=threasholdCorr){
             pointsStructur.at(i).x=(pointsStructur.at(i).x+pointsStructur.at(j).x)/2;
             pointsStructur.at(i).y=(pointsStructur.at(i).y+pointsStructur.at(j).y)/2;
             pointsStructur.erase(pointsStructur.begin()+j);
@@ -141,7 +142,7 @@ int main(int argc, char **argv)
         marker.header.frame_id = "odom";
         marker.header.stamp = ros::Time::now();
         marker.ns = "my_namespace";
-        marker.id = 0;
+        marker.id = i;
         marker.type = visualization_msgs::Marker::SPHERE;
         marker.action = visualization_msgs::Marker::ADD;
         marker.pose.position.x=pointsStructur.at(i).x;
@@ -152,13 +153,14 @@ int main(int argc, char **argv)
         marker.pose.orientation.y = 0.0;
         marker.pose.orientation.z = 0.0;
         marker.pose.orientation.w = 1.0;
-        marker.scale.x = 1;
+        marker.scale.x = 0.1;
         marker.scale.y = 0.1;
         marker.scale.z = 0.1;
         marker.color.a = 1.0;
         marker.color.r = 0.0;
         marker.color.g = 1.0;
         marker.color.b = 0.0;
+        ROS_INFO("COORDINAT MARKER %f %f",marker.pose.position.x,marker.pose.position.y);
         arrays.markers.push_back(marker);
       }
       ROS_INFO("size marker %d",arrays.markers.size());

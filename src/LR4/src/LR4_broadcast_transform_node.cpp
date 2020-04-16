@@ -11,17 +11,17 @@ static geometry_msgs::TransformStamped baselink2laser;
 void odomCallback(const nav_msgs::Odometry &data){
   odom=data;
   odomFlag=true;
-  current_time = ros::Time::now();
 }
 static sensor_msgs::LaserScan scan;
 void scanCallback(const sensor_msgs::LaserScan &data){
   ROS_INFO("scan");
   scan=data;
+  current_time = ros::Time::now();
 }
 
 void transformOdom2Baselink(){
   odom2base_link.header.stamp=current_time;
-  odom2base_link.header.frame_id="odom";
+  odom2base_link.header.frame_id="laser";
   odom2base_link.child_frame_id="base_link";
   odom2base_link.transform.translation.x=odom.pose.pose.position.x;
   odom2base_link.transform.translation.y=odom.pose.pose.position.y;
@@ -37,7 +37,7 @@ void transformOdom2Baselink(){
 void transformBaselink2Laser(){
   baselink2laser.header.stamp=current_time;
   baselink2laser.header.frame_id="base_link";
-  baselink2laser.child_frame_id="laser";
+  baselink2laser.child_frame_id="odom";
   baselink2laser.transform.translation.x=0;
   baselink2laser.transform.translation.y=0;
   baselink2laser.transform.translation.z=0;
@@ -65,7 +65,7 @@ int main(int argc, char **argv)
       odom2baseLinkBroadcast.sendTransform(odom2base_link);
       baselink2laserBroadcast.sendTransform(baselink2laser);
       postOdom=odom;
-      postOdom.header.frame_id="laser";
+      postOdom.header.frame_id="odom";
       postOdom.header.stamp = current_time;
       pub.publish(postOdom);
     }
