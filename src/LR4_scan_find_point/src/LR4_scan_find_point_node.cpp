@@ -11,7 +11,7 @@ static int delta =10;
 struct UniquePoint{
   int index;
   std::vector<double> hist;
-  float x,y;
+  double x,y;
 };
 static std::vector<UniquePoint> pointsStructur;
 
@@ -91,11 +91,12 @@ int main(int argc, char **argv)
       //ROS_INFO("Size scan %d",scan.ranges.size());
       //ROS_INFO("Size crit %d",crit.size());
 
+      ROS_INFO("START_POINT");
       for (int i = 0;i<crit.size();i++) {
         UniquePoint uniquePoint;
         if(crit.at(i)> threashold){
           uniquePoint.index=i+1;
-          ROS_INFO("SCAN_INFO index %d range %f crit %f max %f",uniquePoint.index,scan.ranges.at(uniquePoint.index), crit.at(i),scan.range_max );
+          //ROS_INFO("SCAN_INFO index %d range %f crit %f max %f",uniquePoint.index,scan.ranges.at(uniquePoint.index), crit.at(i),scan.range_max );
           int deltaR=delta;
           int deltaL=delta;
           if (uniquePoint.index-deltaL<0){
@@ -110,16 +111,22 @@ int main(int argc, char **argv)
           }
           //ROS_INFO("input index %d   deltaR %d    deltaL %d", uniquePoint.index,deltaR,deltaL);
           uniquePoint.hist=calcHist(scan,uniquePoint.index-deltaL,uniquePoint.index+deltaR,50);
-          uniquePoint.x=scan.ranges.at(uniquePoint.index)*sin(uniquePoint.index*scan.angle_increment+scan.angle_min);
-          uniquePoint.y=scan.ranges.at(uniquePoint.index)*cos(uniquePoint.index*scan.angle_increment+scan.angle_min);
+          double range= scan.ranges.at(uniquePoint.index);
+          if(!(scan.ranges.at(uniquePoint.index)==scan.ranges.at(uniquePoint.index)) || scan.ranges.at(uniquePoint.index)==INFINITY){
+            range=scan.range_max;
+          }
+          uniquePoint.x=range*sin(uniquePoint.index*scan.angle_increment+scan.angle_min);
+          uniquePoint.y=range*cos(uniquePoint.index*scan.angle_increment+scan.angle_min);
+          ROS_INFO("calculate X %f = range %f * sin %f",uniquePoint.x,range,sin(uniquePoint.index*scan.angle_increment+scan.angle_min));
+          ROS_INFO("calculate Y %f = range %f * cos %f",uniquePoint.y,range,cos(uniquePoint.index*scan.angle_increment+scan.angle_min));
           pointsStructur.push_back(uniquePoint);
-          ROS_INFO("index point %d, x:%f y:%f",uniquePoint.index,uniquePoint.x,uniquePoint.y);
+          //ROS_INFO("index point %d, x:%f y:%f",uniquePoint.index,uniquePoint.x,uniquePoint.y);
         }
       }
       for (int i = 0;i<pointsStructur.size();i++) {
         for (int j = i+1;j<pointsStructur.size();j++) {
           double corr = calculateCorr(pointsStructur.at(i).hist,pointsStructur.at(j).hist);
-          ROS_INFO("correlation %f", corr);
+          //ROS_INFO("correlation H1 %d whit H2 %d size %d", i,j,pointsStructur.size());
           if(corr>threashold){
             pointsStructur.at(i).x=(pointsStructur.at(i).x+pointsStructur.at(j).x)/2;
             pointsStructur.at(i).y=(pointsStructur.at(i).y+pointsStructur.at(j).y)/2;
@@ -139,6 +146,7 @@ int main(int argc, char **argv)
         marker.action = visualization_msgs::Marker::ADD;
         marker.pose.position.x=pointsStructur.at(i).x;
         marker.pose.position.y=pointsStructur.at(i).y;
+        ROS_INFO("POINT     X %f  Y %f",pointsStructur.at(i).x,pointsStructur.at(i).y);
         marker.pose.position.z=0;
         marker.pose.orientation.x = 0.0;
         marker.pose.orientation.y = 0.0;
