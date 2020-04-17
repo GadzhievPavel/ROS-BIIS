@@ -1,0 +1,8 @@
+prefix=/home/pavel/student_633_ws/install
+
+Name: LR5
+Description: Description of LR5
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

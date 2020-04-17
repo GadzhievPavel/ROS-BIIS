@@ -12,6 +12,7 @@ void odomCallback(const nav_msgs::Odometry &data){
   odom=data;
   odomFlag=true;
 }
+
 static sensor_msgs::LaserScan scan;
 void scanCallback(const sensor_msgs::LaserScan &data){
   ROS_INFO("scan");

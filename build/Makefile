@@ -920,6 +920,19 @@ LR4_scan_find_point_node/fast:
 .PHONY : LR4_scan_find_point_node/fast
 
 #=============================================================================
+# Target rules for targets named LR5_node
+
+# Build rule for target.
+LR5_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 LR5_node
+.PHONY : LR5_node
+
+# fast build rule for target.
+LR5_node/fast:
+	$(MAKE) -f LR5/CMakeFiles/LR5_node.dir/build.make LR5/CMakeFiles/LR5_node.dir/build
+.PHONY : LR5_node/fast
+
+#=============================================================================
 # Target rules for targets named hello_node
 
 # Build rule for target.
@@ -1003,6 +1016,7 @@ help:
 	@echo "... _catkin_empty_exported_target"
 	@echo "... LR4_node"
 	@echo "... LR4_scan_find_point_node"
+	@echo "... LR5_node"
 	@echo "... hello_node"
 .PHONY : help
 

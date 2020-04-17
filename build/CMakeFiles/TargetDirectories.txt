@@ -98,6 +98,14 @@
 /home/pavel/student_633_ws/build/LR4_scan_find_point/CMakeFiles/test.dir
 /home/pavel/student_633_ws/build/LR4_scan_find_point/CMakeFiles/install/strip.dir
 /home/pavel/student_633_ws/build/LR4_scan_find_point/CMakeFiles/install/local.dir
+/home/pavel/student_633_ws/build/LR5/CMakeFiles/list_install_components.dir
+/home/pavel/student_633_ws/build/LR5/CMakeFiles/install.dir
+/home/pavel/student_633_ws/build/LR5/CMakeFiles/rebuild_cache.dir
+/home/pavel/student_633_ws/build/LR5/CMakeFiles/edit_cache.dir
+/home/pavel/student_633_ws/build/LR5/CMakeFiles/LR5_node.dir
+/home/pavel/student_633_ws/build/LR5/CMakeFiles/install/strip.dir
+/home/pavel/student_633_ws/build/LR5/CMakeFiles/install/local.dir
+/home/pavel/student_633_ws/build/LR5/CMakeFiles/test.dir
 /home/pavel/student_633_ws/build/hello/CMakeFiles/list_install_components.dir
 /home/pavel/student_633_ws/build/hello/CMakeFiles/install.dir
 /home/pavel/student_633_ws/build/hello/CMakeFiles/rebuild_cache.dir
