@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.9.2, 2020-04-17T20:46:15. -->
+<!-- Written by QtCreator 4.9.2, 2020-04-19T22:49:38. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -120,7 +120,7 @@
      <value type="QString">ROS_PYTHON_VERSION=2</value>
      <value type="QString">ROS_ROOT=/opt/ros/kinetic/share/ros</value>
      <value type="QString">ROS_VERSION=1</value>
-     <value type="QString">SHLVL=716</value>
+     <value type="QString">SHLVL=752</value>
      <value type="QString">TERM=xterm</value>
      <value type="QString">_=/usr/bin/env</value>
     </valuelist>
@@ -453,7 +453,20 @@
       <value type="QString" key="ROSProjectManager.ROSGenericStep.Target">LR5_node</value>
       <value type="QString" key="ROSProjectManager.ROSGenericStep.TargetPath">/home/pavel/student_633_ws/devel/lib/LR5/LR5_node</value>
      </valuemap>
-     <value type="int" key="ProjectExplorer.RunStepList.StepsCount">1</value>
+     <valuemap type="QVariantMap" key="ProjectExplorer.RunStepList.Step.1">
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName"></value>
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ROSProjectManager.ROSRunStep</value>
+      <value type="bool" key="ProjectExplorer.RunStep.Enabled">true</value>
+      <value type="QString" key="ROSProjectManager.ROSGenericStep.Arguments"></value>
+      <value type="QString" key="ROSProjectManager.ROSGenericStep.Command">rosrun</value>
+      <value type="bool" key="ROSProjectManager.ROSGenericStep.DebugContinueOnAttach">true</value>
+      <value type="QString" key="ROSProjectManager.ROSGenericStep.Package">LR5_ICP</value>
+      <value type="QString" key="ROSProjectManager.ROSGenericStep.PackagePath">/home/pavel/student_633_ws/src/LR5_ICP</value>
+      <value type="QString" key="ROSProjectManager.ROSGenericStep.Target">LR5_ICP_node</value>
+      <value type="QString" key="ROSProjectManager.ROSGenericStep.TargetPath">/home/pavel/student_633_ws/devel/lib/LR5_ICP/LR5_ICP_node</value>
+     </valuemap>
+     <value type="int" key="ProjectExplorer.RunStepList.StepsCount">2</value>
     </valuemap>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>

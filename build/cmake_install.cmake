@@ -130,6 +130,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/pavel/student_633_ws/build/LR4/cmake_install.cmake")
   include("/home/pavel/student_633_ws/build/LR4_scan_find_point/cmake_install.cmake")
   include("/home/pavel/student_633_ws/build/LR5/cmake_install.cmake")
+  include("/home/pavel/student_633_ws/build/LR5_ICP/cmake_install.cmake")
   include("/home/pavel/student_633_ws/build/hello/cmake_install.cmake")
 
 endif()

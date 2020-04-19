@@ -15,6 +15,7 @@ static bool flag = false;
 
 void callbackLaser(const sensor_msgs::LaserScan &data){
   scan = data;
+  ROS_INFO("Range %f, size %d",scan.range_max,scan.ranges.size());
   flag = true;
   current_time = ros::Time::now();
 }
@@ -57,45 +58,36 @@ int main(int argc, char **argv)
   ros::Subscriber subOdom = nh.subscribe("/odom",1000,callbackOdom);
   tf::TransformBroadcaster odom2baseLinkBroadcast;
   tf::TransformBroadcaster baselink2laserBroadcast;
-  ros::Publisher pub = nh.advertise<sensor_msgs::PointCloud>("/point_cloude",1000);
+  ros::Publisher pub = nh.advertise<sensor_msgs::PointCloud>("/point_cloud_tf",1000);
 
   ros::Rate r(10.0);
   pointCloud.header.frame_id="laser";
 
   while(ros::ok()){
-    pointCloud.points.clear();
     if (flag){
+      pointCloud.points.clear();
+      pointCloud.channels.clear();
       transformOdom2Baselink();
       transformBaselink2Laser();
       odom2baseLinkBroadcast.sendTransform(odom2base_link);
       baselink2laserBroadcast.sendTransform(baselink2laser);
-      static sensor_msgs::ChannelFloat32 channel;
-      channel.name = "channel 1";
-      for(int i = 0; i < 50; i++) {
-        for(int j = 0; j < 50; j++) {
-          geometry_msgs::Point32 point;
-          point.x = i;
-          point.y = j;
-          point.z = i + j;
-          pointCloud.points.push_back(point);
-          channel.values.push_back(i * j);
-        }
+
+      sensor_msgs::ChannelFloat32 channel;
+
+      for (int i=0;i < scan.ranges.size();i++) {
+        geometry_msgs::Point32 point;
+        point.x=scan.ranges.at(i)*sin(i*scan.angle_increment+scan.angle_min);
+        point.y=scan.ranges.at(i)*cos(i*scan.angle_increment+scan.angle_min);
+        point.z=0;
+        pointCloud.header.stamp=current_time;
+        pointCloud.points.push_back(point);
+        channel.name = "channel 1";
+        channel.values.push_back(100);
       }
       pointCloud.channels.push_back(channel);
-//      for (int i=0;i = scan.ranges.size();i++) {
-//        geometry_msgs::Point32 point;
-//        point.x=scan.ranges.at(i)*sin(i*scan.angle_increment+scan.angle_min);
-//        point.y=scan.ranges.at(i)*cos(i*scan.angle_increment+scan.angle_min);
-//        point.z=0;
-//        pointCloud.header.stamp=current_time;
-//        pointCloud.points.push_back(point);
-//        channel.name = "channel 1";
-//        channel.values.push_back(100);
-
-//      }
-//      pointCloud.channels.push_back(channel);
     }
-
     pub.publish(pointCloud);
+    ros::spinOnce();
+    r.sleep();
   }
 }
