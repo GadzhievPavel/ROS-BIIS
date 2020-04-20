@@ -11,7 +11,7 @@ static geometry_msgs::TransformStamped odom2base_link;
 static geometry_msgs::TransformStamped baselink2laser;
 static sensor_msgs::PointCloud pointCloud;
 static bool flag = false;
-
+static bool flagNAN = true;
 
 void callbackLaser(const sensor_msgs::LaserScan &data){
   scan = data;
@@ -79,12 +79,22 @@ int main(int argc, char **argv)
         point.x=scan.ranges.at(i)*sin(i*scan.angle_increment+scan.angle_min);
         point.y=scan.ranges.at(i)*cos(i*scan.angle_increment+scan.angle_min);
         point.z=0;
-        pointCloud.header.stamp=current_time;
-        pointCloud.points.push_back(point);
-        channel.name = "channel 1";
-        channel.values.push_back(100);
+        if(!(point.x==point.x) || !(point.y==point.y) || point.x== INFINITY || point.y == INFINITY
+           || point.x == -INFINITY || point.y == -INFINITY){
+          flagNAN = false;
+          ROS_INFO("NAN_INF");
+        }else{
+          ROS_INFO("POINT x%f y%f z%f",point.x,point.y,point.z);
+          pointCloud.header.stamp=current_time;
+          pointCloud.points.push_back(point);
+          channel.name = "channel 1";
+          channel.values.push_back(100);
+        }
       }
-      pointCloud.channels.push_back(channel);
+      if(flagNAN){
+       pointCloud.channels.push_back(channel);
+      }
+      flagNAN = true;
     }
     pub.publish(pointCloud);
     ros::spinOnce();

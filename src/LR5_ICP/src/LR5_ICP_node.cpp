@@ -19,7 +19,7 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "LR5_ICP_node");
   ros::NodeHandle nh;
   ros::Subscriber sub = nh.subscribe("/point_cloud_tf",1000,callbackPoints);
-
+  ros::Publisher pub = nh.advertise<sensor_msgs::PointCloud>("pcl_cloud",1000);
   ros::Rate r(10);
 
   while (ros::ok()) {
@@ -45,9 +45,20 @@ int main(int argc, char **argv)
         pcl::PointCloud<pcl::PointXYZ> Final;
         icp.align(Final);
       }
+
       *cloud_out = *cloud_in;
       flagPCL = true;
       flag = false;
+      cloud.points.clear();
+      cloud.channels.clear();
+      for(int i=0;i<cloud_out->size();i++){
+       geometry_msgs::Point32 point;
+       point.x = cloud_out->at(i).x;
+       point.y = cloud_out->at(i).y;
+       point.z = cloud_out->at(i).z;
+       cloud.points.push_back(point);
+      }
+      pub.publish(cloud);
     }
     ros::spinOnce();
     r.sleep();
