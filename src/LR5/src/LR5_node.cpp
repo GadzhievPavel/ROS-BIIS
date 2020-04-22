@@ -10,7 +10,6 @@ static ros::Time current_time;
 
 static sensor_msgs::PointCloud pointCloud;
 static bool flag = false;
-static bool flagNAN = true;
 
 void callbackLaser(const sensor_msgs::LaserScan &data){
   scan = data;
@@ -23,6 +22,9 @@ void callbackOdom(const nav_msgs::Odometry &data){
   odom = data;
 }
 
+void transformation(){
+
+}
 int main(int argc, char **argv)
 {
   ros::init(argc, argv, "LR5_node");
@@ -32,22 +34,20 @@ int main(int argc, char **argv)
   tf::StampedTransform transform;
   tf::TransformBroadcaster br;
   ros::Publisher pub = nh.advertise<sensor_msgs::PointCloud>("/point_cloud_tf",1000);
-  tf::Quaternion q;
   ros::Rate r(10.0);
   pointCloud.header.frame_id="odom";
   while(ros::ok()){
     if (flag){
       pointCloud.points.clear();
       pointCloud.channels.clear();
-
+      tf::Quaternion q(odom.pose.pose.orientation.x,
+                       odom.pose.pose.orientation.y,
+                       odom.pose.pose.orientation.z,
+                       odom.pose.pose.orientation.w);
       double yaw, pitch, roll;
       tf::Matrix3x3 mat(q);
-      mat.getEulerYPR(yaw, pitch, roll);
+      mat.getRPY(roll,pitch,yaw);
       transform.setOrigin(tf::Vector3(0.5,0.1,0.0));
-      q.setW(odom.pose.pose.orientation.w);
-      q.setX(odom.pose.pose.orientation.x);
-      q.setY(odom.pose.pose.orientation.y);
-      q.setZ(odom.pose.pose.orientation.z);
       q = q.normalize();
       transform.setRotation(q);
       transform.frame_id_ ="/base_link";
@@ -64,8 +64,14 @@ int main(int argc, char **argv)
         point.y += odom.pose.pose.position.y;
         point.z += odom.pose.pose.position.z;
 
-        point.x += cos(yaw)*point.x - sin(yaw)*point.y;
-        point.y += sin(yaw)*point.x + cos(yaw)*point.y;
+        point.x = cos(yaw)*point.x - sin(yaw)*point.y;
+        point.y = sin(yaw)*point.x + cos(yaw)*point.y;
+
+        point.x = cos(pitch)*point.x + sin(pitch)*point.z;
+        point.z = -sin(pitch)*point.x + cos(pitch)*point.z;
+
+        point.y = cos(roll)*point.y - sin(roll)*point.z;
+        point.z = sin(roll)*point.y + cos(roll)*point.z;
 
         ROS_INFO("POINT x%f y%f z%f",point.x,point.y,point.z);
         pointCloud.header.stamp=current_time;
