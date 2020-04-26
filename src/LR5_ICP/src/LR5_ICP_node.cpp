@@ -2,6 +2,7 @@
 #include <sensor_msgs/LaserScan.h>
 #include <sensor_msgs/PointCloud.h>
 #include <geometry_msgs/Point.h>
+#include <pcl_ros/transforms.h>
 #include <pcl/io/pcd_io.h>
 #include <pcl/point_types.h>
 #include <pcl/registration/icp.h>
@@ -83,22 +84,27 @@ int main(int argc, char **argv)
         icp.setInputSource(cloud_in);
         icp.setInputTarget(cloud_out);
         icp.setMaximumIterations(50);
+        icp.setTransformationEpsilon(1e-9);
+        icp.setMaxCorrespondenceDistance (0.2);
         pcl::PointCloud<pcl::PointXYZ> Final;
         icp.align(Final);
         std::cout << "has converged:" << icp.hasConverged() << " score: "
                   << icp.getFitnessScore() << std::endl;
         //std::cout << icp.getFinalTransformation() << std::endl;
         Eigen::Matrix4f mat = icp.getFinalTransformation();
-        std::cout<<mat<<std::endl;
-        std::cout<<"X "<<mat(0,3)<<" Y "<<mat(1,3)<<" Z "<<mat(2,3)<<std::endl;
+        transformPointCloud(*cloud_in, *cloud_out, mat);
+        std::cout << mat << std::endl;
+        std::cout <<"X "<< mat(0,3) << " Y "<<mat(1,3)<<" Z "<<mat(2,3)<<std::endl;
         sensor_msgs::ChannelFloat32 channel;
         channel.name = "channel 1";
 
-        for (int i = 0; i<cloud.points.size();i++){
+        for (int i = 0; i<cloud_out->points.size();i++){
           geometry_msgs::Point p;
-          p.x=cloud.points.at(i).x;
-          p.y=cloud.points.at(i).y;
-          p.z=cloud.points.at(i).z;
+          p.x=cloud_out->points.at(i).x;// + mat(0,3);
+          p.y=cloud_out->points.at(i).y;// + mat(1,3);
+          p.z=cloud_out->points.at(i).z;// + mat(2,3);
+          //p.x = mat(0,0)* p.x + p.y * mat(0,1);
+          //p.y = mat(1,0)* p.x + p.y * mat(1,1);
           if(findInCloud(p,globalCloud)){
             channel.values.push_back(100);
             globalCloud.channels.push_back(channel);
