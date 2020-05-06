@@ -25,6 +25,8 @@ pcl/registration/icp.h
 -
 tf/transform_broadcaster.h
 -
+nav_msgs/Odometry.h
+-
 
 /opt/ros/kinetic/include/boost_161_condition_variable.h
 boost/thread/detail/platform.hpp
@@ -178,6 +180,24 @@ std_msgs/Header.h
 geometry_msgs/Pose.h
 -
 
+/opt/ros/kinetic/include/geometry_msgs/PoseWithCovariance.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+geometry_msgs/Pose.h
+-
+
 /opt/ros/kinetic/include/geometry_msgs/Quaternion.h
 string
 -
@@ -294,6 +314,24 @@ std_msgs/Header.h
 geometry_msgs/Twist.h
 -
 
+/opt/ros/kinetic/include/geometry_msgs/TwistWithCovariance.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+geometry_msgs/Twist.h
+-
+
 /opt/ros/kinetic/include/geometry_msgs/Vector3.h
 string
 -
@@ -328,6 +366,28 @@ ros/message_operations.h
 std_msgs/Header.h
 -
 geometry_msgs/Vector3.h
+-
+
+/opt/ros/kinetic/include/nav_msgs/Odometry.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+std_msgs/Header.h
+-
+geometry_msgs/PoseWithCovariance.h
+-
+geometry_msgs/TwistWithCovariance.h
 -
 
 /opt/ros/kinetic/include/pcl_ros/transforms.h

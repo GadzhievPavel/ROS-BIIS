@@ -11,14 +11,17 @@ LR5_ICP/CMakeFiles/LR5_ICP_node.dir/src/LR5_ICP_node.cpp.o
  /opt/ros/kinetic/include/geometry_msgs/PointStamped.h
  /opt/ros/kinetic/include/geometry_msgs/Pose.h
  /opt/ros/kinetic/include/geometry_msgs/PoseStamped.h
+ /opt/ros/kinetic/include/geometry_msgs/PoseWithCovariance.h
  /opt/ros/kinetic/include/geometry_msgs/Quaternion.h
  /opt/ros/kinetic/include/geometry_msgs/QuaternionStamped.h
  /opt/ros/kinetic/include/geometry_msgs/Transform.h
  /opt/ros/kinetic/include/geometry_msgs/TransformStamped.h
  /opt/ros/kinetic/include/geometry_msgs/Twist.h
  /opt/ros/kinetic/include/geometry_msgs/TwistStamped.h
+ /opt/ros/kinetic/include/geometry_msgs/TwistWithCovariance.h
  /opt/ros/kinetic/include/geometry_msgs/Vector3.h
  /opt/ros/kinetic/include/geometry_msgs/Vector3Stamped.h
+ /opt/ros/kinetic/include/nav_msgs/Odometry.h
  /opt/ros/kinetic/include/pcl_ros/transforms.h
  /opt/ros/kinetic/include/ros/advertise_options.h
  /opt/ros/kinetic/include/ros/advertise_service_options.h

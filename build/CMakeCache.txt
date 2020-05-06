@@ -337,6 +337,18 @@ LR5_ICP_SOURCE_DIR:STATIC=/home/pavel/student_633_ws/src/LR5_ICP
 //Value Computed by CMake
 LR5_SOURCE_DIR:STATIC=/home/pavel/student_633_ws/src/LR5
 
+//Value Computed by CMake
+LR6_BINARY_DIR:STATIC=/home/pavel/student_633_ws/build/LR6
+
+//Value Computed by CMake
+LR6_SOURCE_DIR:STATIC=/home/pavel/student_633_ws/src/LR6
+
+//Value Computed by CMake
+LR7_BINARY_DIR:STATIC=/home/pavel/student_633_ws/build/LR7
+
+//Value Computed by CMake
+LR7_SOURCE_DIR:STATIC=/home/pavel/student_633_ws/src/LR7
+
 //lsb_release executable was found
 LSB_FOUND:BOOL=TRUE
 
@@ -544,6 +556,12 @@ Qt5Network_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Network
 //The directory containing a CMake configuration file for Qt5WebKit.
 Qt5WebKit_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5WebKit
 
+//The directory containing a CMake configuration file for Qt5Widgets.
+Qt5Widgets_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets
+
+//The directory containing a CMake configuration file for Qt5.
+Qt5_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5
+
 //Path to a library.
 RT_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/librt.so
 
@@ -594,6 +612,12 @@ gennodejs_DIR:PATH=/opt/ros/kinetic/share/gennodejs/cmake
 
 //The directory containing a CMake configuration file for genpy.
 genpy_DIR:PATH=/opt/ros/kinetic/share/genpy/cmake
+
+//The directory containing a CMake configuration file for geodesy.
+geodesy_DIR:PATH=/opt/ros/kinetic/share/geodesy/cmake
+
+//The directory containing a CMake configuration file for geographic_msgs.
+geographic_msgs_DIR:PATH=/opt/ros/kinetic/share/geographic_msgs/cmake
 
 //The directory containing a CMake configuration file for geometry_msgs.
 geometry_msgs_DIR:PATH=/opt/ros/kinetic/share/geometry_msgs/cmake
@@ -656,6 +680,9 @@ message_generation_DIR:PATH=/opt/ros/kinetic/share/message_generation/cmake
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/kinetic/share/message_runtime/cmake
 
+//The directory containing a CMake configuration file for nav_msgs.
+nav_msgs_DIR:PATH=/opt/ros/kinetic/share/nav_msgs/cmake
+
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/kinetic/share/rosconsole/cmake
 
@@ -700,6 +727,12 @@ tf2_ros_DIR:PATH=/opt/ros/kinetic/share/tf2_ros/cmake
 
 //The directory containing a CMake configuration file for tf.
 tf_DIR:PATH=/opt/ros/kinetic/share/tf/cmake
+
+//The directory containing a CMake configuration file for unique_id.
+unique_id_DIR:PATH=/opt/ros/kinetic/share/unique_id/cmake
+
+//The directory containing a CMake configuration file for uuid_msgs.
+uuid_msgs_DIR:PATH=/opt/ros/kinetic/share/uuid_msgs/cmake
 
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/kinetic/share/xmlrpcpp/cmake
@@ -856,7 +889,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
