@@ -20,7 +20,7 @@ int main(int argc, char **argv)
   geometry_msgs::PoseStamped poseStamped;
   path.poses.clear();
   ros::Publisher pub = nh.advertise<nav_msgs::Path>("/path", 100);
-  QString pathToFile = "/home/pavel/Загрузки/0427071932-56234.gpx";
+  QString pathToFile = "/home/pavel/Загрузки/selodom.gpx";
   QString extension;
   extension = pathToFile.right(3);
   if(extension=="gpx"){
